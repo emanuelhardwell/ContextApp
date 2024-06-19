@@ -1,6 +1,6 @@
 import {Text, View} from 'react-native';
 
-export const App = () => {
+export const Main = () => {
   return (
     <View>
       <Text>App</Text>
