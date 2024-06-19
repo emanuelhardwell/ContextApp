@@ -5,6 +5,7 @@ import {stylesGlobal} from '../../../config/app-theme';
 export const ProfileScreen = () => {
   const name = useStoreProfile(state => state.name);
   const email = useStoreProfile(state => state.email);
+  const changeProfile = useStoreProfile(state => state.changeProfile);
 
   return (
     <View style={stylesGlobal.container}>
@@ -41,6 +42,18 @@ export const ProfileScreen = () => {
           useStoreProfile.setState({email: 'email cambiado'});
         }}>
         <Text style={{color: 'black'}}>Cambiar email</Text>
+      </Pressable>
+
+      <Pressable
+        style={{
+          backgroundColor: 'skyblue',
+          cursor: 'auto',
+          padding: 10,
+          borderRadius: 10,
+          marginTop: 20,
+        }}
+        onPress={() => changeProfile('cloe', 'mtz')}>
+        <Text style={{color: 'black'}}>Cambiar perfil</Text>
       </Pressable>
     </View>
   );
