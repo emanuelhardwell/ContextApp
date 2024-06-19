@@ -1,6 +1,7 @@
-import {View, Text, Pressable} from 'react-native';
+import {View, Text} from 'react-native';
 import {useStoreProfile} from '../../store/profile-store';
 import {stylesGlobal} from '../../../config/app-theme';
+import {ButtonPrimary} from '../../components/ButtonPrimary';
 
 export const ProfileScreen = () => {
   const name = useStoreProfile(state => state.name);
@@ -16,45 +17,26 @@ export const ProfileScreen = () => {
       <Text>{name}</Text>
       <Text>{email}</Text>
 
-      <Pressable
-        style={{
-          backgroundColor: 'red',
-          cursor: 'auto',
-          padding: 10,
-          borderRadius: 10,
-          marginTop: 20,
-        }}
+      <ButtonPrimary
         onPress={() => {
           useStoreProfile.setState({name: 'nombre cambiado'});
-        }}>
-        <Text style={{color: 'black'}}>Cambiar nombre</Text>
-      </Pressable>
-
-      <Pressable
-        style={{
-          backgroundColor: 'orange',
-          cursor: 'auto',
-          padding: 10,
-          borderRadius: 10,
-          marginTop: 20,
         }}
+        title="Cambiar nombre"
+        colorBackground="red"
+      />
+      <ButtonPrimary
         onPress={() => {
           useStoreProfile.setState({email: 'email cambiado'});
-        }}>
-        <Text style={{color: 'black'}}>Cambiar email</Text>
-      </Pressable>
-
-      <Pressable
-        style={{
-          backgroundColor: 'skyblue',
-          cursor: 'auto',
-          padding: 10,
-          borderRadius: 10,
-          marginTop: 20,
         }}
-        onPress={() => changeProfile('cloe', 'mtz')}>
-        <Text style={{color: 'black'}}>Cambiar perfil</Text>
-      </Pressable>
+        title="Cambiar email"
+        colorBackground="orange"
+      />
+
+      <ButtonPrimary
+        onPress={() => changeProfile('cloe', 'mtz')}
+        title="Cambiar perfil"
+        colorBackground="skyblue"
+      />
     </View>
   );
 };
